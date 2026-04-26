@@ -173,15 +173,16 @@ body {
    ============================================================ */
 .main-content {
   margin-left: var(--sidebar-w);
-  flex: 1;
+  width: calc(100% - var(--sidebar-w));
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  transition: margin-left var(--transition);
+  transition: margin-left var(--transition), width var(--transition);
 }
 
 .main-content.expanded {
   margin-left: 0;
+  width: 100%;
 }
 
 .sidebar.closed {
