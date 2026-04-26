@@ -478,16 +478,21 @@ function updatePieChart(catTotals, totalSpent) {
   }
 }
 
-function updateBarChart() {
-  // Get last 6 months data
+function updateBarChart(range) {
+  if (!range) {
+    const activeTab = document.querySelector('.bar-tab.active');
+    range = activeTab ? parseInt(activeTab.dataset.range) : 6;
+  }
+
+  // Get last X months data
   const months = [];
   const data = [];
   
   // Parse current month
   let [year, month] = currentMonth.split('-').map(Number);
   
-  // Create last 6 months labels and calculate totals
-  for (let i = 5; i >= 0; i--) {
+  // Create last X months labels and calculate totals
+  for (let i = range - 1; i >= 0; i--) {
     let d = new Date(year, month - 1 - i, 1);
     let mStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
     let mLabel = d.toLocaleDateString('en-US', { month: 'short' });
@@ -710,6 +715,15 @@ function setupEventListeners() {
     }
     updateUI();
     showToast('Total budget updated successfully', 'success');
+  });
+
+  // Bar Chart Tabs
+  document.querySelectorAll('.bar-tab').forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      document.querySelectorAll('.bar-tab').forEach(t => t.classList.remove('active'));
+      e.target.classList.add('active');
+      updateBarChart();
+    });
   });
 
   // Navigation
