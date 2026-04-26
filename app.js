@@ -278,8 +278,10 @@ function renderBudgetGrid(catTotals) {
           <div class="budget-cat-dot" style="background: ${color}"></div>
           ${cat}
         </div>
-        <div class="budget-amounts">
-          <span>${formatCurrency(spent)}</span> / ${limit > 0 ? formatCurrency(limit) : 'No limit'}
+        <div class="budget-amounts" style="display:flex; align-items:center; gap:6px;">
+          <span>${formatCurrency(spent)}</span>
+          <button class="action-btn" onclick="editCategorySpent('${cat}')" title="Edit ${cat} Spending" style="padding:2px 4px; font-size:0.75rem; background:var(--bg3);">✏️</button>
+          <span>/ ${limit > 0 ? formatCurrency(limit) : 'No limit'}</span>
         </div>
       </div>
       <div class="budget-bar-wrap">
@@ -869,6 +871,29 @@ function handleExpenseSubmit(e) {
   closeModals();
   updateUI();
 }
+
+window.editCategorySpent = function(cat) {
+  const currentTotal = getExpensesForMonth(currentMonth).filter(e => e.category === cat).reduce((sum, exp) => sum + parseFloat(exp.amount), 0);
+  const newValStr = prompt(`Current Total Spent for ${cat} is ₹${currentTotal}.\nEnter new Total Spent:`);
+  if (newValStr === null || newValStr.trim() === '') return;
+  const newVal = parseFloat(newValStr);
+  if (!isNaN(newVal)) {
+    const diff = newVal - currentTotal;
+    if (diff !== 0) {
+      expenses.push({
+        id: generateId(),
+        desc: 'Manual Adjustment',
+        amount: diff,
+        category: cat,
+        date: `${currentMonth}-01`,
+        notes: 'Adjusted from budget tracker'
+      });
+      saveData();
+      updateUI();
+      showToast(`${cat} spending adjusted successfully`, 'success');
+    }
+  }
+};
 
 window.editExpense = function(id) {
   openExpenseModal(id);
