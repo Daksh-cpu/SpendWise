@@ -7,6 +7,7 @@
 let currentMonth = '2026-04';
 let expenses = [];
 let budgets = {};
+let globalBudgetOverride = null;
 
 // Categories and colors
 const CATEGORIES = {
@@ -123,6 +124,9 @@ function init() {
     saveBudgets();
   }
   
+  const savedGlobalBudget = localStorage.getItem('spendwise_global_budget');
+  if (savedGlobalBudget) globalBudgetOverride = parseFloat(savedGlobalBudget);
+  
   setupEventListeners();
   populateCategoryFilters();
   updateUI();
@@ -185,6 +189,10 @@ function updateUI() {
       overCount++;
     }
   });
+
+  if (globalBudgetOverride !== null) {
+    totalBudget = globalBudgetOverride;
+  }
   
   // Update Summary Cards
   els.totalSpent.textContent = formatCurrency(totalSpent);
@@ -517,6 +525,7 @@ function updateBarChart() {
       },
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
           legend: { display: false },
           tooltip: {
@@ -661,6 +670,48 @@ function updateReportCharts() {
 
 // --- EVENT LISTENERS ---
 function setupEventListeners() {
+  // Dashboard Edit Buttons
+  document.getElementById('edit-total-spent').addEventListener('click', () => {
+    const currentTotal = getExpensesForMonth(currentMonth).reduce((sum, exp) => sum + parseFloat(exp.amount), 0);
+    const newValStr = prompt(`Current Total Spent is ₹${currentTotal}.\nEnter new Total Spent:`);
+    if (newValStr === null || newValStr.trim() === '') return;
+    const newVal = parseFloat(newValStr);
+    if (!isNaN(newVal)) {
+      const diff = newVal - currentTotal;
+      if (diff !== 0) {
+        expenses.push({
+          id: generateId(),
+          desc: 'Manual Adjustment',
+          amount: diff,
+          category: 'Other',
+          date: `${currentMonth}-01`,
+          notes: 'Adjusted from dashboard'
+        });
+        saveData();
+        updateUI();
+        showToast('Total spent adjusted successfully', 'success');
+      }
+    }
+  });
+
+  document.getElementById('edit-total-budget').addEventListener('click', () => {
+    const currentTotal = globalBudgetOverride !== null ? globalBudgetOverride : Object.values(budgets).reduce((a,b)=>a+b, 0);
+    const newValStr = prompt(`Current Total Budget is ₹${currentTotal}.\nEnter new Total Budget (leave empty to revert to sum of categories):`);
+    if (newValStr === null) return;
+    if (newValStr.trim() === '') {
+      globalBudgetOverride = null;
+      localStorage.removeItem('spendwise_global_budget');
+    } else {
+      const newVal = parseFloat(newValStr);
+      if (!isNaN(newVal) && newVal >= 0) {
+        globalBudgetOverride = newVal;
+        localStorage.setItem('spendwise_global_budget', newVal);
+      }
+    }
+    updateUI();
+    showToast('Total budget updated successfully', 'success');
+  });
+
   // Navigation
   els.navItems.forEach(item => {
     item.addEventListener('click', (e) => {
