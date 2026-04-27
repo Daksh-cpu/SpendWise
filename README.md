@@ -16,7 +16,7 @@ SpendWise is a sleek, premium dark-themed single-page application built to help 
 - **Vanilla JavaScript** (No heavy frameworks used)
 - **Chart.js** (For dynamic charts and graphs)
 
-## 💻 How to Run Locally
+## 💻 How to Run Locally ?
 
 Since this application utilizes Local Storage, you will need to serve it over a local HTTP server (opening the file directly via `file:///` may cause the browser to block data persistence).
 
