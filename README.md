@@ -1,30 +1,80 @@
-# SpendWise Expense Dashboard
+# 💰 SpendWise — Premium Expense Dashboard
 
-SpendWise is a sleek, premium dark-themed single-page application built to help users manually log and track their personal home expenses. It features a modern glassmorphism aesthetic and interactive data visualization.
+[![GitHub stars](https://img.shields.io/github/stars/Daksh-cpu/SpendWise?style=for-the-badge&color=7c6cf2)](https://github.com/Daksh-cpu/SpendWise/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-4f9cf9?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Vanilla JS](https://img.shields.io/badge/Made%20with-Vanilla%20JS-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-## 🌟 Features
+SpendWise is a sleek, premium dark-themed single-page application designed to help you master your personal finances. With a modern glassmorphism aesthetic and interactive data visualization, tracking your home expenses has never looked this good.
 
-- **Premium Dark Mode UI**: Modern aesthetic with intuitive navigation and fully responsive layout.
-- **Budget Tracking**: Set monthly limits for different categories and track your spending against them with real-time visual progress bars.
-- **Interactive Dashboards**: Color-coded donut pie charts and monthly bar charts summarizing your data.
-- **Expense Logging**: Easily log expenses with description, amount in INR (₹), category, and date.
-- **Local Storage**: All data is kept completely private and saved securely in your local browser storage.
+![SpendWise Preview](preview.png)
 
-## 🚀 Technologies Used
+---
 
-- **HTML5** & **Vanilla CSS**
-- **Vanilla JavaScript** (No heavy frameworks used)
-- **Chart.js** (For dynamic charts and graphs)
+## ✨ Key Features
 
-## 💻 How to Run Locally
+- **🎨 Premium Dark Mode UI**: A meticulously crafted interface with glassmorphism effects, vibrant accents, and smooth transitions.
+- **📊 Interactive Dashboards**: Visualize your spending patterns with dynamic donut charts, bar graphs, and radar charts powered by **Chart.js**.
+- **🎯 Budget Management**: Set monthly limits for 10+ categories and track your progress with real-time visual bars.
+- **📝 Detailed Logging**: Effortlessly log expenses with descriptions, amounts (in ₹), categories, and dates.
+- **🔐 Privacy First**: Your data stays yours. Everything is stored locally in your browser's `localStorage`—no servers, no tracking.
+- **📱 Fully Responsive**: Optimized for both desktop and mobile viewing.
 
-Since this application utilizes Local Storage, you will need to serve it over a local HTTP server (opening the file directly via `file:///` may cause the browser to block data persistence).
+---
 
-**Option 1: Using VS Code**
-1. Install the "Live Server" extension.
-2. Right-click on `index.html` and click "Open with Live Server".
+## 🛠️ Tech Stack
 
-**Option 2: Using Python**
-1. Open your terminal in the project directory.
-2. Run `python -m http.server 8000` (or `python3 -m http.server 8000`).
-3. Open your browser and navigate to `http://localhost:8000`.
+SpendWise is built using modern web standards for maximum performance and zero dependencies (excluding Chart.js).
+
+| Technology | Purpose |
+| :--- | :--- |
+| <img src="https://skillicons.dev/icons?i=html" height="25" /> **HTML5** | Semantic structure and layout |
+| <img src="https://skillicons.dev/icons?i=css" height="25" /> **Vanilla CSS** | Glassmorphism design and custom variables |
+| <img src="https://skillicons.dev/icons?i=js" height="25" /> **JavaScript** | State management and interactive logic |
+| <img src="https://www.chartjs.org/img/chartjs-logo.svg" height="25" /> **Chart.js** | Advanced data visualization |
+
+---
+
+## 🚀 Getting Started
+
+Since SpendWise uses `localStorage` and complex JavaScript, it is recommended to run it through a local server to ensure all features work correctly.
+
+### Option 1: VS Code (Easiest)
+1. Install the **Live Server** extension.
+2. Right-click on `index.html` and select **"Open with Live Server"**.
+
+### Option 2: Python
+1. Open your terminal in the project folder.
+2. Run: `python -m http.server 8000`
+3. Navigate to `http://localhost:8000` in your browser.
+
+---
+
+## 📸 Screenshots
+
+| Dashboard Overview | Expense Management |
+| :---: | :---: |
+| ![Dashboard](preview.png) | *Detailed tables and filters* |
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! If you have ideas for new features or UI improvements, feel free to fork the repo and submit a PR.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+<p align="center">
+  Developed with ❤️ by <a href="https://github.com/Daksh-cpu">Daksh-cpu</a>
+</p>
