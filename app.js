@@ -588,6 +588,7 @@ function updateReportCharts() {
       },
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: { y: { beginAtZero: true } }
       }
@@ -623,6 +624,7 @@ function updateReportCharts() {
       },
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         scales: {
           r: {
             angleLines: { color: 'rgba(42, 48, 80, 0.5)' },
