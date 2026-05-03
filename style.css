@@ -639,8 +639,8 @@ body {
    ============================================================ */
 .reports-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 24px;
 }
 .reports-summary-card { margin: 0; }
 
