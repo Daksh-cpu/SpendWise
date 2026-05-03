@@ -238,7 +238,7 @@ function renderRecentTransactions(monthlyExpenses) {
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td><strong>${exp.desc}</strong></td>
-      <td><span class="cat-pill" style="color: ${CATEGORIES[exp.category]}; background: ${CATEGORIES[exp.category]}20">${getCatIcon(exp.category)} ${exp.category}</span></td>
+      <td><span class="cat-pill" style="color: ${CATEGORIES[exp.category]}; background: color-mix(in srgb, ${CATEGORIES[exp.category]}, transparent 85%)">${getCatIcon(exp.category)} ${exp.category}</span></td>
       <td>${formatDate(exp.date)}</td>
       <td style="font-weight:600;">${formatCurrency(exp.amount)}</td>
       <td>
@@ -333,7 +333,7 @@ function renderExpensesTable() {
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td><strong>${exp.desc}</strong></td>
-      <td><span class="cat-pill" style="color: ${CATEGORIES[exp.category]}; background: ${CATEGORIES[exp.category]}20">${getCatIcon(exp.category)} ${exp.category}</span></td>
+      <td><span class="cat-pill" style="color: ${CATEGORIES[exp.category]}; background: color-mix(in srgb, ${CATEGORIES[exp.category]}, transparent 85%)">${getCatIcon(exp.category)} ${exp.category}</span></td>
       <td>${formatDate(exp.date)}</td>
       <td style="font-weight:600;">${formatCurrency(exp.amount)}</td>
       <td style="color: var(--text2); font-size: 0.8rem;">${exp.notes || '-'}</td>
