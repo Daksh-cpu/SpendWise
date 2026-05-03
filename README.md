@@ -3,10 +3,11 @@
 [![GitHub stars](https://img.shields.io/github/stars/Daksh-cpu/SpendWise?style=for-the-badge&color=7c6cf2)](https://github.com/Daksh-cpu/SpendWise/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-4f9cf9?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Vanilla JS](https://img.shields.io/badge/Made%20with-Vanilla%20JS-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Site-success?style=for-the-badge&logo=github)](https://daksh-cpu.github.io/SpendWise/)
 
 SpendWise is a sleek, premium dark-themed single-page application designed to help you master your personal finances. With a modern glassmorphism aesthetic and interactive data visualization, tracking your home expenses has never looked this good.
 
-![SpendWise Preview](preview.png)
+![SpendWise Preview](live_preview.png)
 
 ---
 
@@ -51,9 +52,9 @@ Since SpendWise uses `localStorage` and complex JavaScript, it is recommended to
 
 ## 📸 Screenshots
 
-| Dashboard Overview | Expense Management |
+| Dashboard Overview | Reports & Analytics |
 | :---: | :---: |
-| ![Dashboard](preview.png) | *Detailed tables and filters* |
+| ![Dashboard](live_preview.png) | ![Reports](reports_preview.png) |
 
 ---
 
